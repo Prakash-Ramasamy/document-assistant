@@ -1,0 +1,28 @@
+.controls {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.search-button {
+    height: 40px;
+    border-radius: 10px;
+    width: fit-content;
+    margin: 20px auto;
+}
+
+.textArea {
+    margin: 20px auto;
+}
+
+.textArea textarea {
+    background: rgb(249, 249, 249);
+    border-radius: 10px;
+}
+
+.search-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
