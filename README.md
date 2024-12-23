@@ -2,6 +2,10 @@
 
 This project is a React-based web application called **Document Assistant**. It allows users to upload documents and search within them.
 
+## Architecture Diagram
+
+![Architecture Diagram](./architecture_diagram.png)
+
 ## Project Structure
 
 ```
