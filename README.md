@@ -1,111 +1,92 @@
-# Document Assistant API
+# Personal Document Assistant
 
-## Overview
-The Document Assistant API is a .NET 6.0 web API that leverages Azure Cognitive Services and OpenAI to read and summarize documents. It provides endpoints to read document content and generate summaries based on user queries.
+This project is a React-based web application called Document Assistant. It allows users to upload documents and search within them.
 
 ## Project Structure
-```
-AzDocumentReadOpenAIAPI/
-├── .vs/
-│   ├── AzDocumentReadOpenAIAPI/
-│   │   ├── config/
-│   │   ├── DesignTimeBuild/
-│   │   ├── FileContentIndex/
-│   │   ├── ProjectEvaluation/
-│   │   ├── azdocumentreadopenaiapi.metadata.v5.1
-│   │   ├── azdocumentreadopenaiapi.projects.v5.1
-│   │   ├── sd/
-├── bin/
-│   ├── Debug/
-│   ├── Release/
-├── obj/
-├── Controllers/
-│   ├── AzServicesController.cs
-├── Properties/
-│   ├── ...
-├── appsettings.json
-├── appsettings.Development.json
-├── AzAIForm.cs
-├── AzOpenAI.cs
-├── Summary.cs
-├── AzDocumentReadOpenAIAPI.csproj
-├── AzDocumentReadOpenAIAPI.csproj.user
-├── AzDocumentReadOpenAIAPI.sln
-├── Program.cs
+
+document-assistant/
+├── .gitignore
+├── package.json
+├── public/
+│   ├── index.html
+│   ├── manifest.json
+│   └── robots.txt
 ├── README.md
-```
+├── src/
+│   ├── App.css
+│   ├── App.tsx
+│   ├── components/
+│   │   ├── DocumentAssistant.css
+│   │   ├── DocumentAssistant.tsx
+│   ├── index.css
+│   ├── index.tsx
+│   ├── reusable_components/
+│   │   ├── FileUpload.tsx
+│   │   ├── Loader.css
+│   │   └── Loader.tsx
+│   └── services/
+│       └── azureServices.ts
+└── tsconfig.json
 
-## Prerequisites
-- **.NET 6.0 SDK**
-- **Azure Cognitive Services Form Recognizer**
-- **Azure OpenAI Service**
+## Available Scripts
 
-## Configuration
-### 1. `appsettings.json`
-Configure your Azure Cognitive Services and OpenAI credentials:
-```json
-{
-  "AIServiceEndPoint": "Your Azure OpenAI Endpoint",
-  "AIServiceKey": "Your Azure OpenAI Key",
-  "AIServiceDeploymentName": "Your Azure OpenAI Deployment Name"
-}
-```
+In the project directory, you can run:
 
-### 2. Environment Variables
-Alternatively, you can set the following environment variables:
-- `AIServiceEndPoint`
-- `AIServiceKey`
-- `AIServiceDeploymentName`
+### `npm start`
 
-## Building and Running
-1. **Restore Dependencies**:
-   ```bash
-   dotnet restore
-   ```
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-2. **Build the Project**:
-   ```bash
-   dotnet build
-   ```
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-3. **Run the Project**:
-   ```bash
-   dotnet run
-   ```
+### `npm test`
 
-## API Endpoints
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### Read Document
-- **URL**: `/api/AzServices/ReadDocument`
-- **Method**: `POST`
-- **Description**: Reads the content of a document from the request body.
-- **Request Body**: Binary stream of the document.
-- **Response**: JSON containing the document content.
+### `npm run build`
 
-### Summarize Document
-- **URL**: `/api/AzServices/SummarizeDocument`
-- **Method**: `POST`
-- **Description**: Summarizes the content of a document based on a user's query.
-- **Request Body**: JSON object containing `Content` and `Query`.
-- **Response**: JSON containing the summarized content.
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-## Code Overview
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-### `Program.cs`
-The entry point of the application. Configures services and middleware.
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `AzAIForm.cs`
-Handles reading documents using Azure Cognitive Services Form Recognizer.
+### `npm run eject`
 
-### `AzOpenAI.cs`
-Handles summarizing documents using Azure OpenAI.
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-### `Controllers/AzServicesController.cs`
-Defines the API endpoints for reading and summarizing documents.
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-### `Summary.cs`
-Defines the `Summary` model used in the `SummarizeDocument` endpoint.
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-## License
-This project is licensed under the MIT License.
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However, we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
+## Components
+
+### `DocumentAssistant`
+
+The `DocumentAssistant` component is located in [src/components/DocumentAssistant.tsx](src/components/DocumentAssistant.tsx). It allows users to upload a document and search within it.
+
+### `FileUpload`
+
+The `FileUpload` component is located in [src/reusable_components/FileUpload.tsx](src/reusable_components/FileUpload.tsx). It provides a file upload interface with drag-and-drop support.
+
+### `Loader`
+
+The `Loader` component is located in [src/components/Loader.tsx](src/components/Loader.tsx). It displays a loading spinner with an overlay.
+
+## Services
+
+### `azureServices`
+
+The `azureServices` module is located in [src/services/azureServices.ts](src/services/azureServices.ts). It contains functions to interact with Azure services for reading and summarizing documents.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
