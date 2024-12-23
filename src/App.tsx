@@ -2,17 +2,17 @@ import { Component } from 'react';
 import 'office-ui-fabric-core/dist/css/fabric.min.css';
 import './App.css';
 import { initializeIcons } from '@fluentui/react/lib/Icons';
-import DocumentAssitant from './components/DocumentAssistant';
+import DocumentAssistant from './components/DocumentAssistant';
 
 initializeIcons();
 
 interface IAppState {
-  file: any;
+  file: File | null;
   searchQuery: string;
 }
 
-class App extends Component<any, IAppState> {
-  constructor(props: any) {
+class App extends Component<{}, IAppState> {
+  constructor(props: {}) {
     super(props);
     this.state = {
       file: null,
@@ -28,7 +28,7 @@ class App extends Component<any, IAppState> {
         </header>
 
         <main className="app-main">
-          <DocumentAssitant />
+          <DocumentAssistant />
         </main>
 
         <footer className="app-footer">

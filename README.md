@@ -1,3 +1,33 @@
+# Personal Document Assistant
+
+This project is a React-based web application called Document Assistant. It allows users to upload documents and search within them.
+
+## Project Structure
+
+document-assistant/
+├── .gitignore
+├── package.json
+├── public/
+│   ├── index.html
+│   ├── manifest.json
+│   └── robots.txt
+├── README.md
+├── src/
+│   ├── App.css
+│   ├── App.tsx
+│   ├── components/
+│   │   ├── DocumentAssistant.css
+│   │   ├── DocumentAssistant.tsx
+│   ├── index.css
+│   ├── index.tsx
+│   ├── reusable_components/
+│   │   ├── FileUpload.tsx
+│   │   ├── Loader.css
+│   │   └── Loader.tsx
+│   └── services/
+│       └── azureServices.ts
+└── tsconfig.json
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -44,6 +74,16 @@ The `DocumentAssistant` component is located in [src/components/DocumentAssistan
 ### `FileUpload`
 
 The `FileUpload` component is located in [src/reusable_components/FileUpload.tsx](src/reusable_components/FileUpload.tsx). It provides a file upload interface with drag-and-drop support.
+
+### `Loader`
+
+The `Loader` component is located in [src/components/Loader.tsx](src/components/Loader.tsx). It displays a loading spinner with an overlay.
+
+## Services
+
+### `azureServices`
+
+The `azureServices` module is located in [src/services/azureServices.ts](src/services/azureServices.ts). It contains functions to interact with Azure services for reading and summarizing documents.
 
 ## Learn More
 
